@@ -1,7 +1,7 @@
 import os
 from pathlib import Path
 import dj_database_url
-
+import psycopg2
 DATABASE_URL = os.environ.get('DATABASE_URL')
 DATABASE_NAME = os.environ.get('DATABASE_NAME')
 DATABASE_USER = os.environ.get('DATABASE_USER')
@@ -85,20 +85,16 @@ WSGI_APPLICATION = 'project_xaf.wsgi.application'
 #     }
 # }
 
-if DATABASE_URL:
-    DATABASES = {'default': dj_database_url.parse(DATABASE_URL)}
-else:
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.postgresql',
-            'NAME': DATABASE_NAME,
-            'USER': DATABASE_USER,
-            'PASSWORD': DATABASE_PASSWORD,
-            'HOST': DATABASE_HOST,
-            'PORT': DATABASE_PORT,
-        }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': os.environ.get('PGDATABASE'),
+        'USER': os.environ.get('PGUSER'),
+        'PASSWORD': os.environ.get('PGPASSWORD'),
+        'HOST': os.environ.get('PGHOST'),
+        'PORT': os.environ.get('PGPORT'),  # 5432 by default
     }
-
+}
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
 
