@@ -17,14 +17,6 @@ DEBUG = False
 
 ALLOWED_HOSTS = ['www.xpressagileframework.com', 'xpressagileframework.com', '127.0.0.1', 'localhost']
 
-CORS_ALLOWED_ORIGINS = [
-    'https://web-production-72bb.up.railway.app',
-]
-
-CSRF_TRUSTED_ORIGINS = [
-    'https://web-production-72bb.up.railway.app'
-]
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -36,6 +28,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'mptt',
     'app_main',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
@@ -131,3 +124,13 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 MEDIA_URL = '/media/'
+
+
+
+CORS_ALLOWED_ORIGINS = [
+    'https://web-production-72bb.up.railway.app',
+]
+
+CSRF_TRUSTED_ORIGINS = [
+    'https://web-production-72bb.up.railway.app'
+]
