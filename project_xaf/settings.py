@@ -93,7 +93,7 @@ DATABASES = {
         'USER': os.environ.get('PGUSER'),
         'PASSWORD': os.environ.get('PGPASSWORD'),
         'HOST': os.environ.get('PGHOST'),
-        'PORT': '5432',  # 5432 by default
+        'PORT': 7130,  # 5432 by default
 
     }
 }
