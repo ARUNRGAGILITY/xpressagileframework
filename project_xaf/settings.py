@@ -93,9 +93,11 @@ DATABASES = {
         'USER': os.environ.get('PGUSER'),
         'PASSWORD': os.environ.get('PGPASSWORD'),
         'HOST': os.environ.get('PGHOST'),
-        'PORT': os.environ.get('PGPORT'),  # 5432 by default
+        'PORT': '5432',  # 5432 by default
+
     }
 }
+#os.environ.get('PGPORT')
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
 
