@@ -13,7 +13,7 @@ SECRET_KEY = 'django-insecure-)+frm)*82j)(aom0ryb+sd1bmr_m*84h!&3iwohjvd^_2c=68y
 #SECRET_KEY = os.environ.get["SECRET_KEY"]
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['www.xpressagileframework.com', 'xpressagileframework.com', '127.0.0.1', 'localhost']
 
