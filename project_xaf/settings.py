@@ -17,6 +17,13 @@ DEBUG = False
 
 ALLOWED_HOSTS = ['www.xpressagileframework.com', 'xpressagileframework.com', '127.0.0.1', 'localhost']
 
+CORS_ALLOWED_ORIGINS = [
+    'https://web-production-72bb.up.railway.app',
+]
+
+CSRF_TRUSTED_ORIGINS = [
+    'https://web-production-72bb.up.railway.app'
+]
 
 # Application definition
 
