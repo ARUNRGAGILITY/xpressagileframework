@@ -41,6 +41,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsPostCsrfMiddleware',
 ]
 
 ROOT_URLCONF = 'project_xaf.urls'
@@ -130,8 +131,14 @@ MEDIA_URL = '/media/'
 
 CORS_ALLOWED_ORIGINS = [
     'https://*.up.railway.app',
+    'https://web-production-72bb.up.railway.app',
+    'https://xpressagileframework.com',
+    'https://www.xpressagileframework.com',
 ]
 
 CSRF_TRUSTED_ORIGINS = [
-    'https://*.up.railway.app'
+    'https://*.up.railway.app',
+    'https://web-production-72bb.up.railway.app',
+    'https://xpressagileframework.com',
+    'https://www.xpressagileframework.com',
 ]
