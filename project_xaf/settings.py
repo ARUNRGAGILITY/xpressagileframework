@@ -129,9 +129,9 @@ MEDIA_URL = '/media/'
 
 
 CORS_ALLOWED_ORIGINS = [
-    'https://web-production-72bb.up.railway.app',
+    'https://*.up.railway.app',
 ]
 
 CSRF_TRUSTED_ORIGINS = [
-    'https://web-production-72bb.up.railway.app'
+    'https://*.up.railway.app'
 ]
