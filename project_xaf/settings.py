@@ -2,13 +2,6 @@ import os
 from pathlib import Path
 import dj_database_url
 import psycopg2
-DATABASE_URL = os.environ.get('DATABASE_URL')
-DATABASE_NAME = os.environ.get('DATABASE_NAME')
-DATABASE_USER = os.environ.get('DATABASE_USER')
-DATABASE_PASSWORD = os.environ.get('DATABASE_PASSWORD')
-DATABASE_HOST = os.environ.get('DATABASE_HOST')
-DATABASE_PORT = '5432'
-#os.environ.get('DATABASE_PORT')
 
 
 
@@ -40,6 +33,7 @@ INSTALLED_APPS = [
     'mptt',
     'app_main',
     'corsheaders',
+    'django_redis',
 ]
 
 MIDDLEWARE = [
@@ -86,18 +80,30 @@ WSGI_APPLICATION = 'project_xaf.wsgi.application'
 #     }
 # }
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': os.environ.get('PGDATABASE'),
+#         'USER': os.environ.get('PGUSER'),
+#         'PASSWORD': os.environ.get('PGPASSWORD'),
+#         'HOST': os.environ.get('PGHOST'),
+#         'PORT': os.environ.get('PGPORT')
+
+#     }
+# }
+REDIS_LOCATION = 'redis://'+ os.environ.get('REDISHOST')+':7043/0'
+REDIS_PASSWORD = os.environ.get('REDISPASSWORD')
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': os.environ.get('PGDATABASE'),
-        'USER': os.environ.get('PGUSER'),
-        'PASSWORD': os.environ.get('PGPASSWORD'),
-        'HOST': os.environ.get('PGHOST'),
-        'PORT': 7130,  # 5432 by default
-
+        'ENGINE': 'django_redis.cache.RedisCache',
+        'LOCATION': REDIS_LOCATION,
+        'OPTIONS': {
+            'CLIENT_CLASS': 'django_redis.client.DefaultClient',
+            'PASSWORD': REDIS_PASSWORD,
+        },
     }
 }
-#os.environ.get('PGPORT')
+
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
 
